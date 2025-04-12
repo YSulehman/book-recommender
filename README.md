@@ -6,6 +6,9 @@ Could use this kaggle dataset: [Books Dataset](https://www.kaggle.com/datasets/e
 knowledge base that the system uses when users enter a prompt. 
 Should be able to use free tier of AWS. 
 
+- AWS ECS to run lightweight containers,
+- AWS S3 free tier.
+
 Approach (backend):
 
 1. Create vector embeddings for books in dataset.
