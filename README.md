@@ -9,6 +9,9 @@ Should be able to use free tier of AWS.
 - AWS ECS to run lightweight containers,
 - AWS S3 free tier.
 
+Questions:
+- distinction between dataset location for local development vs deploying on cloud database?
+
 Approach (backend):
 
 1. Create vector embeddings for books in dataset.
