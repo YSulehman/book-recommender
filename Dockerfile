@@ -1,7 +1,7 @@
 # pull the python base image (check docker for which is suitable
 FROM python:3.10-slim
 
-# set the working directory 
+# set the working directory (/app is convention)
 WORKDIR /app
 
 # install python dependencies
