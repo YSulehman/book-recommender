@@ -4,6 +4,7 @@ other keywords.
 
 Could use this kaggle dataset: [Books Dataset](https://www.kaggle.com/datasets/elvinrustam/books-dataset?select=BooksDataset.csv). This will act as 
 knowledge base that the system uses when users enter a prompt. 
+Have opted for this [goodreads scraped dataset](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks?resource=download)
 Should be able to use free tier of AWS. 
 
 - AWS ECS to run lightweight containers,
