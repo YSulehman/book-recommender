@@ -40,11 +40,11 @@ def preprocess(file: str, columns: list) -> pd.DataFrame:
     
     # get subset of data we're interested in but check specified columns are there 
     missing_columns = [col for col in columns if col not in df.columns]
-    if missing_columns:
+    if len(missing_columns) != 0:
         raise KeyError(f"Missing required columns: {missing_columns}")
     
     else:
-        df_subset = df[[columns]]
+        df_subset = df[columns]
 
     return df_subset
 
@@ -75,6 +75,8 @@ def run_embed_data(args) -> None:
     embedded_data = np.concatenate([author_embeddings, publisher_embeddings, language_embeddings, normalised_ratings, normalised_page_count], 
                             axis=1)
     
+    print(embedded_data.shape)
+
     # save embedded data
     np.save(args.save_file, embedded_data)
 
