@@ -10,16 +10,26 @@ Should be able to use free tier of AWS.
 - AWS ECS to run lightweight containers,
 - AWS S3 free tier.
 
-Questions:
+## Questions:
 - distinction between dataset location for local development vs deploying on cloud database?
 
-Approach (backend):
+To Dos:
+1. create vector embedding of data. (DONE),
+2. implement knn,
+3. set up rest api via fastapi,
+4. write front-end interface code (test locally)
+5. create AWS free tier account, 
+6. containerise model via docker ? 
+7. set up aws endpoint etc.,...deploy!
+
+
+## Approach (backend):
 
 1. Create vector embeddings for books in dataset.
 2. user give prompt -> embed -> perform k-nn 
 3. return results along with metadata, etc. 
 
-Frontend:
+## Frontend:
 
 1. receives user input
 2. send request to backend API
