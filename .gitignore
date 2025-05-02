@@ -1,0 +1,8 @@
+# envionment variables 
+.env 
+
+# notebooks
+notebooks/
+
+# data 
+backend/data/*
