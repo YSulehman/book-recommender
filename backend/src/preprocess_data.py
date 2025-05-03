@@ -1,4 +1,5 @@
 import os
+import pickle
 import argparse
 import numpy as np
 import pandas as pd
@@ -62,23 +63,30 @@ def run_embed_data(args) -> None:
     authors = df['authors'].astype(str).tolist()
     publishers = df['publisher'].astype(str).tolist()
     languages = df['language_code'].astype(str).tolist()
+    titles = df['title'].astype(str).tolist()
 
     author_embeddings = model.encode(authors)
     publisher_embeddings = model.encode(publishers)
     language_embeddings = model.encode(languages)
+    title_embeddings = model.encode(titles)
 
     # now handle numerical columns 
     normalised_ratings = normalise_numeric_values(df, 'average_rating')
     normalised_page_count = normalise_numeric_values(df, 'num_pages')
 
     # concatenate all data into single arrray horizontally 
-    embedded_data = np.concatenate([author_embeddings, publisher_embeddings, language_embeddings, normalised_ratings, normalised_page_count], 
-                            axis=1)
+    embedded_data = np.concatenate([title_embeddings, author_embeddings, publisher_embeddings, language_embeddings, normalised_ratings, 
+                                    normalised_page_count], axis=1)
     
-    print(embedded_data.shape)
+    # print(embedded_data.shape)
+
+    data = {'embeddings': embedded_data, 'titles': titles}
+
+    with open(args.save_file, 'wb') as f:
+        pickle.dump(data, f)
 
     # save embedded data
-    np.save(args.save_file, embedded_data)
+    # np.save(args.save_file, embedded_data)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
