@@ -11,11 +11,13 @@ Should be able to use free tier of AWS.
 - AWS S3 free tier.
 
 ## Questions:
+- embedded query features must match embedded data... what if embedded data has more than titles?
+- how to set up model as rest api? what is uvicorn? different ports?
 - distinction between dataset location for local development vs deploying on cloud database?
 
 To Dos:
 1. create vector embedding of data. (DONE),
-2. implement knn,
+2. implement knn (unsupervised), (DONE)
 3. set up rest api via fastapi,
 4. write front-end interface code (test locally)
 5. create AWS free tier account, 
