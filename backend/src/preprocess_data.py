@@ -60,23 +60,25 @@ def run_embed_data(args) -> None:
     # instantiate model
     model = SentenceTransformer("all-MiniLM-L6-v2")
 
-    authors = df['authors'].astype(str).tolist()
-    publishers = df['publisher'].astype(str).tolist()
-    languages = df['language_code'].astype(str).tolist()
+    # authors = df['authors'].astype(str).tolist()
+    # publishers = df['publisher'].astype(str).tolist()
+    # languages = df['language_code'].astype(str).tolist()
     titles = df['title'].astype(str).tolist()
 
-    author_embeddings = model.encode(authors)
-    publisher_embeddings = model.encode(publishers)
-    language_embeddings = model.encode(languages)
+    # author_embeddings = model.encode(authors)
+    # publisher_embeddings = model.encode(publishers)
+    # language_embeddings = model.encode(languages)
     title_embeddings = model.encode(titles)
 
     # now handle numerical columns 
-    normalised_ratings = normalise_numeric_values(df, 'average_rating')
-    normalised_page_count = normalise_numeric_values(df, 'num_pages')
+    # normalised_ratings = normalise_numeric_values(df, 'average_rating')
+    # normalised_page_count = normalise_numeric_values(df, 'num_pages')
 
     # concatenate all data into single arrray horizontally 
-    embedded_data = np.concatenate([title_embeddings, author_embeddings, publisher_embeddings, language_embeddings, normalised_ratings, 
-                                    normalised_page_count], axis=1)
+    # embedded_data = np.concatenate([title_embeddings, author_embeddings, publisher_embeddings, language_embeddings, normalised_ratings, 
+    #                                 normalised_page_count], axis=1)
+    
+    embedded_data = np.concatenate([title_embeddings], axis=1)
     
     # print(embedded_data.shape)
 
