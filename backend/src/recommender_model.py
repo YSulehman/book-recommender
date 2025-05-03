@@ -23,7 +23,7 @@ class KNN:
         self.nn_model.fit(embedded_data)
 
         # Find closest neighbors
-        _ , indices = self.nn_model.kneighbors(self.encoded_book_query)
+        indices = self.nn_model.kneighbors(self.encoded_book_query, return_distance=False)
         
         # Return recommended titles
         return [titles[i] for i in indices[0]]
