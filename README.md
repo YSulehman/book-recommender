@@ -13,12 +13,13 @@ Should be able to use free tier of AWS.
 ## Questions:
 - embedded query features must match embedded data... what if embedded data has more than titles?
 - how to set up model as rest api? what is uvicorn? different ports?
+- html and javascript basics: how to take user search input as argument for js function?
 - distinction between dataset location for local development vs deploying on cloud database?
 
 To Dos:
 1. create vector embedding of data. (DONE),
 2. implement knn (unsupervised), (DONE)
-3. set up rest api via fastapi,
+3. set up rest api via fastapi, (Done ish... how to display results in a list format? Could be frontend task.)
 4. write front-end interface code (test locally)
 5. create AWS free tier account, 
 6. containerise model via docker ? 
