@@ -12,10 +12,49 @@
         <label for="site-search">Enter a book to find your next read...:</label>
         
         <input type="search" id="site-search" name="q" />
-        <!-- <output name="query" for "site-search"></output>-->
-        <button>Search</button>
+        
+        <input type="submit" id="button" name="button" value="Enter" />
+        <!-- create a display element for query and backend reponse-->
+        <div id="book_query"></div>
+        <div id="backend_response"></div>
+
+        <!-- main javascript function -->
         <script>
-            // Javascript code to be added for taking user prompt
+            // declare as block scoped so accessible by other functions
+            let socket; 
+
+            // initiate websocket communication with backend
+            function initialise_websocket(){
+                // add backend url
+                const socket = new WebSocket('');
+
+                // use socket onmessage to call/display backend response
+            }
+
+            function main() {
+                document.getElementById('button').onclick = function () {
+                    var input = document.getElementById('site-search');
+                    
+                    // displays query (input) value 
+                    document.getElementById("book_query").innerText = input.value;
+                    // document.getElementById("var_type").innerText = typeof x.value;
+
+                    const query = input.value;
+                    // send query to backend
+                    sendQuery(query);
+
+                };
+            }
+
+            // function to send book query to backend server
+            function sendQuery(query) {
+                // send query 
+                socket.send(query);
+            }
+
+            // call main function
+            initialise_websocket();
+            main();
         </script>
     </body>
 </html>

@@ -11,10 +11,11 @@ Should be able to use free tier of AWS.
 - AWS S3 free tier.
 
 ## Questions:
-- embedded query features must match embedded data... what if embedded data has more than titles?
-- how to set up model as rest api? what is uvicorn? different ports?
-- html and javascript basics: how to take user search input as argument for js function?
-- distinction between dataset location for local development vs deploying on cloud database?
+1. embedded query features must match embedded data... what if embedded data has more than titles?
+2. how to set up model as rest api? what is uvicorn? different ports?
+3. html and javascript basics: how to take user search input as argument for js function? (PROGRESS).
+4. follow up from 3.; look into WebSockets
+5. distinction between dataset location for local development vs deploying on cloud database?
 
 To Dos:
 1. create vector embedding of data. (DONE),
