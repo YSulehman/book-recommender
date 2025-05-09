@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+import json
+from fastapi import FastAPI, WebSocket
 from backend.src.recommender_model import KNN
 from sentence_transformers import SentenceTransformer
 
@@ -22,5 +23,28 @@ def recommend(book_query: str):
     knn.encoded_book_query = embedded_book_query
     
     return {'recommendations': knn.recommend_books()}
+
+# websocket endpoint 
+@app.websocket('/ws')
+async def websocket_endpoint(websocket: WebSocket):
+    # accept WebSocket connection
+    await websocket.accept()
+
+    # wait for message from client
+    while True:
+        query = await websocket.receive_text()
+
+        # embed users book query
+        embedded_book_query = model.encode([query])
+
+        #set query attribute
+        knn.encoded_book_query = embedded_book_query
+
+        recommendations = knn.recommend_books()
+
+        await websocket.send_text(json.dumps(recommendations))
+
+
+
 
 

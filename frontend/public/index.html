@@ -15,7 +15,7 @@
         
         <input type="submit" id="button" name="button" value="Enter" />
         <!-- create a display element for query and backend reponse-->
-        <div id="book_query"></div>
+        <!-- <div id="book_query"></div> -->
         <div id="backend_response"></div>
 
         <!-- main javascript function -->
@@ -26,20 +26,54 @@
             // initiate websocket communication with backend
             function initialise_websocket(){
                 // add backend url
-                const socket = new WebSocket('');
+                socket = new WebSocket('ws://localhost:8000/ws');
 
                 // use socket onmessage to call/display backend response
+                socket.onopen = function (event) {
+                    // log that user is connected to socket
+                    console.log('connected to socket!');
+                }
+                // log when a message is received from server
+                socket.onmessage = function (event) {
+                    // need to get/store server response
+                    const response = document.getElementById('backend_response');
+
+                    try {
+                            // parse JSON string to JavaScript array
+                            const recommendations = JSON.parse(event.data);
+
+                            // display recommendations as an unordered list
+                            response.innerHTML = `
+                                <ul>
+                                    ${recommendations.map(book => `<li>${book}</li>`).join('')}
+                                </ul>
+                            `;
+                    } catch (error) {
+                        console.error('Error parsing server response:', error);
+                        response.innerText = 'Failed to load recommendations.';
+                    }
+
+                    console.log('message received!', event.data)
+                }
+
+                // WebSocket connection is closed
+                socket.onclose = function (event) {
+                    // Log a message when disconnected from the WebSocket server
+                    console.log('Disconnected from WebSocket server');
+
+                }
+            
             }
 
             function main() {
                 document.getElementById('button').onclick = function () {
                     var input = document.getElementById('site-search');
                     
-                    // displays query (input) value 
-                    document.getElementById("book_query").innerText = input.value;
-                    // document.getElementById("var_type").innerText = typeof x.value;
+                    // displays query (input) value (this can be commented out tbf)
+                    // document.getElementById("book_query").innerText = input.value;
 
                     const query = input.value;
+
                     // send query to backend
                     sendQuery(query);
 
