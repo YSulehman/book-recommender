@@ -20,11 +20,12 @@ Should be able to use free tier of AWS.
 To Dos:
 1. create vector embedding of data. (DONE),
 2. implement knn (unsupervised), (DONE)
-3. set up rest api via fastapi, (Done ish... how to display results in a list format? Could be frontend task.)
-4. write front-end interface code (test locally)
-5. create AWS free tier account, 
-6. containerise model via docker ? 
-7. set up aws endpoint etc.,...deploy!
+3. set up rest api via fastapi, (Done ish... how to display results in a list format? Could be frontend task.) (DONE)
+4. write front-end interface code (test locally) (DONE)
+5. read up more on websockets (javascript client and python backend) + how to improve frontend UI?
+6. create AWS free tier account, 
+7. containerise model via docker ? 
+8. set up aws endpoint etc.,...deploy!
 
 
 ## Approach (backend):
