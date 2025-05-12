@@ -45,7 +45,7 @@
                             // display recommendations as an unordered list
                             response.innerHTML = `
                                 <ul>
-                                    ${recommendations.map(book => `<li>${book}</li>`).join('')}
+                                    ${recommendations.map(book => `<li><a href="${getGoodreadsUrl(book)}" target="_blank" rel="noopener noreferrer">${book}</a></li>`).join('')}
                                 </ul>
                             `;
                     } catch (error) {
@@ -84,6 +84,13 @@
             function sendQuery(query) {
                 // send query 
                 socket.send(query);
+            }
+
+            // function to generate goodreads url for each recommended book
+            function getGoodreadsUrl(book_name) {
+                // encode book in correct format for url
+                const cleanTitle = book_name.replace(/\(.*?\)/g, '').trim();
+                return `https://www.goodreads.com/search?query=${encodeURIComponent(cleanTitle.trim())}`;
             }
 
             // call main function
