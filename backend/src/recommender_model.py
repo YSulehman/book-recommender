@@ -14,13 +14,14 @@ class KNN:
          # nearest neighbour model
         self.nn_model = NearestNeighbors(n_neighbors=self.num_neighbours, metric=self.metric)
 
-    def recommend_books(self):
-        # load data 
+        # load data once?
         with open(self.data_pth, 'rb') as f:
-            data = pickle.load(f)
+            self.data = pickle.load(f)
 
-        embedded_data = data['embeddings']
-        titles = data['titles']
+    def recommend_books(self):
+
+        embedded_data = self.data['embeddings']
+        titles = self.data['titles']
 
         # fit model 
         self.nn_model.fit(embedded_data)
