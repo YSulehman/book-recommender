@@ -3,20 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <style>
+            .top-block {
+            background-color: #f9f7d5; /* cream, change as needed */
+            padding: 20px;
+            text-align: center;
+        }
+
             h1 {text-align: center;}
+
+            ul {
+                display: table;
+                margin: 0 auto;
+            
+            }
+            
+            ul li {
+                 margin-bottom: 10px; /* spacing between items */
+            }
         </style>
         <title>Book Recommender</title>
     </head>
     <body>
-        <h1>Book Recommender</h1> 
-        <label for="site-search">Enter a book to find your next read...:</label>
-        
-        <input type="search" id="site-search" name="q" />
-        
-        <input type="submit" id="button" name="button" value="Enter" />
+        <div class="top-block"><h1>Browse a Book</h1></div>
+        <br>
+        <div style="text-align:center;"><label for="site-search" style="text-align:center">Find your next read!:</label></div>
+        <br>
+        <div style="text-align:center;"><input type="search" id="site-search" name="q" /></div>
+        <br>
+        <div style="text-align:center;"><input type="submit" id="button" name="button" value="Enter"></div>
         <!-- create a display element for query and backend reponse-->
-        <!-- <div id="book_query"></div> -->
-        <div id="backend_response"></div>
+        <br>
+        <div id="backend_response" style="text-align:center"></div>
 
         <!-- main javascript function -->
         <script>
@@ -43,7 +60,7 @@
                             const recommendations = JSON.parse(event.data);
 
                             // display recommendations as an unordered list
-                            response.innerHTML = `
+                            response.innerHTML =`
                                 <ul>
                                     ${recommendations.map(book => `<li><a href="${getGoodreadsUrl(book)}" target="_blank" rel="noopener noreferrer">${book}</a></li>`).join('')}
                                 </ul>

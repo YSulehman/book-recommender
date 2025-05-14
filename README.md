@@ -22,7 +22,7 @@ To Dos:
 2. implement knn (unsupervised), (DONE)
 3. set up rest api via fastapi, (Done ish... how to display results in a list format? Could be frontend task.) (DONE)
 4. write front-end interface code (test locally) (DONE)
-5. read up more on websockets (javascript client and python backend) + how to improve frontend UI?
+5. read up more on websockets (javascript client and python backend) + how to improve frontend UI (have centred + some colour)?
 6. create AWS free tier account, 
 7. containerise model via docker ? 
 8. set up aws endpoint etc.,...deploy!
