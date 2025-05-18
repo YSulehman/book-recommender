@@ -1,4 +1,5 @@
 import json
+from fastapi.responses import FileResponse
 from fastapi import FastAPI, WebSocket
 from fastapi.staticfiles import StaticFiles
 from backend.src.recommender_model import KNN
@@ -7,10 +8,13 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("all-MiniLM-L6-v2")
 knn = KNN(None, 'backend/data/clean/embedded_data.pkl', 5)
 
-
 app = FastAPI()
 
-app.mount("/", StaticFiles(directory="frontend/public", html=True), name="frontend")
+app.mount("/static", StaticFiles(directory="frontend/public/static"), name="static")
+
+@app.get("/")
+async def root():
+    return FileResponse("frontend/public/index.html")
 
 # test run
 @app.get('/health') 
