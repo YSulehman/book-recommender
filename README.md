@@ -1,6 +1,17 @@
 # Book Recommender
-The aim of this project is to incorporate a back-end book recommender with a front-end web app that allows users to find book recommendations based on book titles, genre or 
-other keywords.
+A web app book recommender. 
+
+## Dataset
+The dataset used here is a Kaggle dataset, publicly available here: [goodreads scraped dataset](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks?resource=download)
+
+To pre-process the data, run the following command:
+
+```
+python backend/src/preprocess_data.py --input_file path_to_raw_data --save_file dest_path_clean_data
+```
+
+## Backend 
+The app uses Sentence TR
 
 Could use this kaggle dataset: [Books Dataset](https://www.kaggle.com/datasets/elvinrustam/books-dataset?select=BooksDataset.csv). This will act as 
 knowledge base that the system uses when users enter a prompt. 
