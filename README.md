@@ -2,7 +2,7 @@
 A web app book recommender. 
 
 ## Dataset
-The dataset used here is a Kaggle dataset, publicly available here: [goodreads scraped dataset](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks?resource=download)
+The dataset used here is a Kaggle dataset, publicly available here: [goodreads dataset](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks?resource=download)
 
 To pre-process the data, run the following command:
 
@@ -11,11 +11,9 @@ python backend/src/preprocess_data.py --input_file path_to_raw_data --save_file 
 ```
 
 ## Backend 
-The app uses Sentence TR
+The application uses [Sentence Transformers](https://huggingface.co/sentence-transformers) to create vector embeddings of the data. Unsupervised KNN is used to generate the book 
+recommendations. 
 
-Could use this kaggle dataset: [Books Dataset](https://www.kaggle.com/datasets/elvinrustam/books-dataset?select=BooksDataset.csv). This will act as 
-knowledge base that the system uses when users enter a prompt. 
-Have opted for this [goodreads scraped dataset](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks?resource=download)
 Should be able to use free tier of AWS. 
 
 - AWS ECS to run lightweight containers,
