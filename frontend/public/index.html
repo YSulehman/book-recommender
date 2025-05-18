@@ -43,7 +43,7 @@
             // initiate websocket communication with backend
             function initialise_websocket(){
                 // add backend url
-                socket = new WebSocket('ws://localhost:8000/ws');
+                socket = new WebSocket('ws://35.178.176.197/ws');
 
                 // use socket onmessage to call/display backend response
                 socket.onopen = function (event) {

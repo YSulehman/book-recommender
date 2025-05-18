@@ -1,5 +1,6 @@
 import json
 from fastapi import FastAPI, WebSocket
+from fastapi.staticfiles import StaticFiles
 from backend.src.recommender_model import KNN
 from sentence_transformers import SentenceTransformer
 
@@ -9,8 +10,10 @@ knn = KNN(None, 'backend/data/clean/embedded_data.pkl', 5)
 
 app = FastAPI()
 
+app.mount("/", StaticFiles(directory="frontend/public", html=True), name="frontend")
+
 # test run
-@app.get('/') 
+@app.get('/health') 
 def health_check():
     return {'message': 'Hello World'}
 

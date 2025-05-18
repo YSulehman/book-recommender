@@ -14,7 +14,11 @@ python backend/src/preprocess_data.py --input_file path_to_raw_data --save_file 
 The application uses [Sentence Transformers](https://huggingface.co/sentence-transformers) to create vector embeddings of the data. Unsupervised KNN is used to generate the book 
 recommendations. 
 
-Should be able to use free tier of AWS. 
+## Installation and deploylment
+
+*Instructions to be added*
+
+<!-- Should be able to use free tier of AWS. 
 
 - AWS ECS to run lightweight containers,
 - AWS S3 free tier.
@@ -47,4 +51,4 @@ To Dos:
 
 1. receives user input
 2. send request to backend API
-3. display recommendations.
+3. display recommendations. -->
