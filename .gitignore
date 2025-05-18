@@ -10,3 +10,6 @@ notebooks/
 
 # data 
 backend/data/*
+
+# frontend
+frontend/public/config.js
