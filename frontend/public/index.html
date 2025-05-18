@@ -35,6 +35,9 @@
         <br>
         <div id="backend_response" style="text-align:center"></div>
 
+        <!-- Load config.js first -->
+        <script src="config.js"></script>
+
         <!-- main javascript function -->
         <script>
             // declare as block scoped so accessible by other functions
@@ -43,7 +46,9 @@
             // initiate websocket communication with backend
             function initialise_websocket(){
                 // add backend url
-                socket = new WebSocket('ws://35.178.176.197/ws');
+                // Use the value from config.js
+                const WS_URL = window.APP_CONFIG.WS_URL;
+                socket = new WebSocket(WS_URL);
 
                 // use socket onmessage to call/display backend response
                 socket.onopen = function (event) {
