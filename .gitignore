@@ -12,5 +12,4 @@ notebooks/
 backend/data/*
 
 # frontend
-frontend/public/config.js
 frontend/public/static/config.js
