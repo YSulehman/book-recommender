@@ -16,39 +16,20 @@ recommendations.
 
 ## Installation and deploylment
 
-*Instructions to be added*
+If Docker is not installed, you can do so by the following the instructions [here](https://docs.docker.com/get-started/get-docker/).
 
-<!-- Should be able to use free tier of AWS. 
+Build the docker file locally:
 
-- AWS ECS to run lightweight containers,
-- AWS S3 free tier.
+```
+docker build -t your_image_name:tag .
+```
+Then push the image to an online registry, such as [Docker Hub](https://hub.docker.com/). The application was deployed via AWS EC2, instructions for setting up an instance can be found [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html).
 
-## Questions:
-1. embedded query features must match embedded data... what if embedded data has more than titles?
-2. how to set up model as rest api? what is uvicorn? different ports?
-3. html and javascript basics: how to take user search input as argument for js function? (PROGRESS).
-4. follow up from 3.; look into WebSockets
-5. distinction between dataset location for local development vs deploying on cloud database?
-
-To Dos:
-1. create vector embedding of data. (DONE),
-2. implement knn (unsupervised), (DONE)
-3. set up rest api via fastapi, (Done ish... how to display results in a list format? Could be frontend task.) (DONE)
-4. write front-end interface code (test locally) (DONE)
-5. read up more on websockets (javascript client and python backend) + how to improve frontend UI (have centred + some colour)?
-6. create AWS free tier account, 
-7. containerise model via docker ? 
-8. set up aws endpoint etc.,...deploy!
-
-
-## Approach (backend):
-
-1. Create vector embeddings for books in dataset.
-2. user give prompt -> embed -> perform k-nn 
-3. return results along with metadata, etc. 
-
-## Frontend:
-
-1. receives user input
-2. send request to backend API
-3. display recommendations. -->
+After you ssh into your EC2 account pull the image:
+```
+docker pull your_image_name:tag
+```
+Finally, run the container exposing the appropriate port:
+```
+docker run -d -p host_port:container_port --name your_container_name your_image_name:tag
+```
